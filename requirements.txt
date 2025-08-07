@@ -1,0 +1,2 @@
+# XuanXue依赖包
+sxtwl>=1.0.0
