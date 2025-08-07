@@ -1,4 +1,4 @@
 # XuanXue 股票数据库路径配置
 # 请确保路径指向有效的SQLite数据库文件
 
-stock_meta_path=d:\股票基本信息数据库\stock_meta.db
+stock_meta_path=D:\nonexistent\path\stock.db

@@ -15,7 +15,7 @@ __version__ = "0.1.0"
 __author__ = "XuWu"
 
 from .core.ganzhi_calculator import DateTimeGanZhi
-from .core.stock_ganzhi import nBoardDateGanZhi
+from .core.stock_ganzhi import OnBoardDateGanZhi
 
 from XuanXue.xuanxue.config import (
     get_stock_meta_path,
@@ -24,7 +24,7 @@ from XuanXue.xuanxue.config import (
 )
 
 __all__ = [
-    "nBoardDateGanZhi", 
+    "OnBoardDateGanZhi", 
     "DateTimeGanZhi",
     "get_stock_meta_path",
     "set_stock_meta_path", 

@@ -53,9 +53,7 @@ def GanZhiCalculator_Core(year,month,day,hour=-1,minute=-1,second=-1):
     GanZhiOrder_Time=[]
     if hour>=0:
        day_gz=GanZhiOrder_Date[2]
-       day_gan_index=day_gz.tg
-       hour_gan_idx,hour_zhi_idx=calculate_hour_ganzhi(hour,day_gan_index)
-       hour_gz=create_ganzhi_object(hour_gan_idx,hour_zhi_idx)
+       hour_gz=sxtwl.getShiGz(day_gz.tg,hour)
        GanZhiOrder_Time.append(hour_gz)
     else:
         GanZhiOrder_Time.append(-1)
@@ -77,22 +75,7 @@ def GanZhiCalculator_Core(year,month,day,hour=-1,minute=-1,second=-1):
     GanZhiOrder=GanZhiOrder_Date+GanZhiOrder_Time
     return GanZhiOrder
 
-def calculate_hour_ganzhi(hour,day_gan_index):
-    """
-    计算时干支
-    :param hour: 时
-    :param day_gan_index: 日干支索引
-    :return: 时干支索引
-    """
-    if hour==23:
-        zhi_index=0
-    else:
-        zhi_index=(hour+1)//2
-    
-    gan_start=gan_start_map[day_gan_index]
-    gan_index=(gan_start+zhi_index)%10
-    
-    return gan_index,zhi_index
+
 
 def calculate_ms_ganzhi(ms):
 

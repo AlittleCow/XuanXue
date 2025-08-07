@@ -136,7 +136,7 @@ class StockGanZhiCalculator:
         except sqlite3.Error as e:
             raise Exception(f"保存干支信息到数据库失败: {e}")
     
-    def nBoardDateGanZhi(self, symbol):
+    def OnBoardDateGanZhi(self, symbol):
         """
         查询股票上市日期的干支
         如果数据库中已有干支记录，直接返回；如果没有，先计算并保存，然后返回
@@ -239,7 +239,7 @@ class StockGanZhiCalculator:
             raise Exception(f"批量更新失败: {e}")
 
 # 便捷函数
-def nBoardDateGanZhi(symbol, db_path=None):
+def OnBoardDateGanZhi(symbol, db_path=None):
     """
     便捷函数：查询股票上市日期的干支
     如果数据库中已有干支记录，直接返回；如果没有，先计算并保存，然后返回
@@ -249,7 +249,7 @@ def nBoardDateGanZhi(symbol, db_path=None):
     """
     try:
         calculator = StockGanZhiCalculator(db_path)
-        return calculator.nBoardDateGanZhi(symbol)
+        return calculator.OnBoardDateGanZhi(symbol)
     except Exception as e:
         print(f"查询股票 {symbol} 干支失败: {e}")
         raise
@@ -309,7 +309,7 @@ if __name__ == "__main__":
     # 测试单个股票（第一次调用 - 可能需要计算）
     print("\n3. 测试单个股票查询（第一次）:")
     try:
-        result = calculator.nBoardDateGanZhi('000001.SZ')
+        result = calculator.OnBoardDateGanZhi('000001.SZ')
         print(f"   股票代码: {result['symbol']}")
         print(f"   股票名称: {result['name']}")
         print(f"   交易所: {result['exchange']}")
@@ -323,7 +323,7 @@ if __name__ == "__main__":
     # 测试同一股票（第二次调用 - 应该从数据库直接读取）
     print("\n4. 测试同一股票查询（第二次，应该从缓存读取）:")
     try:
-        result2 = calculator.nBoardDateGanZhi('000001.SZ')
+        result2 = calculator.OnBoardDateGanZhi('000001.SZ')
         print(f"   结果一致性检查: {'✓ 一致' if result['ganzhi'] == result2['ganzhi'] else '✗ 不一致'}")
     except Exception as e:
         print(f"   ✗ 测试失败: {e}")
@@ -331,7 +331,7 @@ if __name__ == "__main__":
     # 测试便捷函数
     print("\n5. 测试便捷函数:")
     try:
-        result3 = nBoardDateGanZhi('000002.SZ')
+        result3 = OnBoardDateGanZhi('000002.SZ')
         print(f"   000002.SZ: {result3['name']} - {result3['ganzhi']}")
     except Exception as e:
         print(f"   ✗ 便捷函数测试失败: {e}")

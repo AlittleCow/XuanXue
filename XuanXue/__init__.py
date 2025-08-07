@@ -19,7 +19,7 @@ __author__ = "XuWu"
 
 # 导入主要功能
 from .xuanxue import (
-    nBoardDateGanZhi,
+    OnBoardDateGanZhi,
     DateTimeGanZhi,
     get_stock_meta_path,
     set_stock_meta_path,
@@ -29,7 +29,7 @@ from .xuanxue import (
 
 __all__ = [
     # 主要函数
-    "nBoardDateGanZhi",
+    "OnBoardDateGanZhi",
     "DateTimeGanZhi", 
     
     
