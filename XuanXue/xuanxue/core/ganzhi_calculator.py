@@ -75,8 +75,6 @@ def GanZhiCalculator_Core(year,month,day,hour=-1,minute=-1,second=-1):
     GanZhiOrder=GanZhiOrder_Date+GanZhiOrder_Time
     return GanZhiOrder
 
-
-
 def calculate_ms_ganzhi(ms):
 
     """

@@ -10,7 +10,10 @@ from .config_manager import (
     get_stock_meta_path,
     set_stock_meta_path, 
     check_stock_meta_path,
-    StockPathManager
+    StockPathManager,
+    get_stock_kbar_path,
+    set_stock_kbar_path,
+    check_stock_kbar_path
 )
 
 __all__ = [
@@ -20,5 +23,9 @@ __all__ = [
     'get_stock_meta_path', 
     'set_stock_meta_path',
     'check_stock_meta_path',
-    'StockPathManager'
+    'StockPathManager',
+    'get_stock_kbar_path',
+    'set_stock_kbar_path',
+    'check_stock_kbar_path'
+
 ]

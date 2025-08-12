@@ -23,7 +23,15 @@ from .xuanxue import (
     DateTimeGanZhi,
     get_stock_meta_path,
     set_stock_meta_path,
-    check_stock_meta_path
+    check_stock_meta_path,
+    get_stock_kbar_path,
+    set_stock_kbar_path,
+    check_stock_kbar_path,
+    KbarSeriesGanZhi,
+    KbarSeriesKey,
+    KbarSeries,
+
+
 )
 
 
@@ -31,12 +39,23 @@ __all__ = [
     # 主要函数
     "OnBoardDateGanZhi",
     "DateTimeGanZhi", 
-    
+    "KbarSeriesGanZhi",
+
     
     # 配置管理
     "get_stock_meta_path",
     "set_stock_meta_path",
     "check_stock_meta_path",
+    "get_stock_kbar_path",
+    "set_stock_kbar_path",
+    "check_stock_kbar_path",
+
+    #类别
+    "KbarSeriesKey",
+    "KbarSeries",
+    "Kbar",
+
+
     
 
     
