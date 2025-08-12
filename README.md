@@ -146,7 +146,7 @@ XuanXue包开发/
     └── test_stock_ganzhi.py    # 股票干支功能测试
 
 ##测试
-请运行run_tests.py文件
+请运行run_tests.py文件或者test_demo.py
 
 
 ## 依赖
