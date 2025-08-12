@@ -103,28 +103,51 @@ print(test.info())
 
 
 
-## API文档
+## 项目文件结构
 
-### 主要函数
+XuanXue包开发/
+├── .coverage                    # 代码覆盖率报告文件
+├── .gitignore                   # Git忽略文件配置
+├── .pytest_cache/               # pytest缓存目录
+├── README.md                    # 项目说明文档
+├── XuanXue/                     # 主包目录
+│   ├── __init__.py             # 包初始化文件
+│   ├── examples/               # 使用示例目录
+│   └── xuanxue/                # 核心模块目录
+│       ├── __init__.py         # 模块初始化，导出主要API
+│       ├── config/             # 配置模块
+│       │   ├── __init__.py     # 配置模块初始化
+│       │   ├── config.py       # 干支配置常量（天干地支映射表）
+│       │   ├── config.txt      # 配置文件
+│       │   └── config_manager.py # 配置管理器（数据库路径等）
+│       ├── core/               # 核心功能模块
+│       │   ├── ganzhi_calculator.py # 干支计算器（日期时间转干支）
+│       │   ├── kbarseriesganzhi.py  # K线序列干支计算（主要功能）
+│       │   └── stock_ganzhi.py      # 股票干支计算（上市日期干支）
+│       └── utils/              # 工具模块
+│           ├── __init__.py     # 工具模块初始化
+│           └── kbar_type.py    # K线数据类型定义
+├── getdata.py                   # 数据获取脚本（从tushare获取股票基本信息）
+├── htmlcov/                     # HTML格式的代码覆盖率报告目录
+├── pytest.ini                  # pytest测试配置文件
+├── requirements-dev.txt         # 开发环境依赖包列表
+├── requirements.txt             # 生产环境依赖包列表
+├── run_tests.py                 # 测试运行脚本
+├── setup.py                     # 包安装配置脚本
+├── stock_meta.db               # 股票基本信息数据库，用于示范数据库格式
+├── stock_kbar.db               # 股票k线数据数据库，用于示范数据库格式
+└── tests/                       # 测试目录
+    ├── __init__.py             # 测试模块初始化
+    ├── conftest.py             # pytest配置和fixture
+    ├── test_config.py          # 配置模块测试
+    ├── test_ganzhi_calculator.py # 干支计算器测试
+    ├── test_integration.py     # 集成测试
+    ├── test_performance.py     # 性能测试
+    └── test_stock_ganzhi.py    # 股票干支功能测试
 
-- `nBoardDateGanZhi(symbol)`: 查询股票上市日期干支
-- `DateTimeGanZhi(datetime_str)`: 计算日期时间干支
-- `set_stock_meta_path(path)`: 设置数据库路径
-- `get_stock_meta_path()`: 获取当前数据库路径
-- `check_stock_meta_path()`: 检查数据库状态
+##测试
+请运行run_tests.py文件
 
-### 配置管理
-
-```python
-# 设置数据库路径
-xx.set_stock_meta_path("/path/to/stock_meta.db")
-
-# 获取当前路径
-path = xx.get_stock_meta_path()
-
-# 检查数据库是否可用
-is_valid, message = xx.check_stock_meta_path()
-```
 
 ## 依赖
 

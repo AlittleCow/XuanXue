@@ -201,6 +201,12 @@ def kbarseriesganzhi_none(db_path, start_datetime, end_datetime):
         print(f"返回 {len(result_list)} 个K线序列的干支数据")
         return KbarSeriesGanZhiList(result_list)
         
+    except sqlite3.OperationalError as e:
+        if "unable to open database file" in str(e):
+            raise FileNotFoundError(f"无法打开数据库文件: {db_path}") from e
+        else:
+            print(f"数据库操作错误: {e}")
+            return KbarSeriesGanZhiList([])
     except Exception as e:
         print(f"kbarseriesganzhi_none 执行出错: {e}")
         return KbarSeriesGanZhiList([])
