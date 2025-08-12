@@ -58,6 +58,7 @@ def GanZhiCalculator_Core(year,month,day,hour=-1,minute=-1,second=-1):
     else:
         GanZhiOrder_Time.append(-1)
     
+    """
     if minute>=0:
         minute_gan_idx,minute_zhi_idx=calculate_ms_ganzhi(minute)
         minute_gz=create_ganzhi_object(minute_gan_idx,minute_zhi_idx)
@@ -71,7 +72,7 @@ def GanZhiCalculator_Core(year,month,day,hour=-1,minute=-1,second=-1):
         GanZhiOrder_Time.append(second_gz)
     else:
         GanZhiOrder_Time.append(-1)
-
+    """
     GanZhiOrder=GanZhiOrder_Date+GanZhiOrder_Time
     return GanZhiOrder
 
